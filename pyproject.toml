@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "openai-func-app"
+version = "0.1.0"
+description = ""
+authors = ["AIMindPLm <aimindplm@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.114.1"
+uvicorn = "^0.30.6"
+openai = "^1.44.1"
+requests = "^2.32.3"
+flask = "^3.0.3"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
