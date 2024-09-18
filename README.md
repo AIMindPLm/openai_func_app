@@ -109,7 +109,7 @@ openai_func_app/
 POST /chat
 {
   "messages": [
-    {"role": "user", "content": "Add 5 and 3"}
+    {"role": "user", "content": "Give me top 3 low profitable product quantity"}
   ]
 }
 
@@ -119,7 +119,7 @@ POST /chat
 ```
 {
   "role": "assistant",
-  "content": "The result of adding 5 and 3 is 8."
+  "content": "The top 3 low-profitable products based on quantity for the month of August 2024 are:\n1. Product-04 with a total profit of $7500.00\n2. Product 1 with a total profit of $27000.00\n3. Product 2 with a total profit of $50000.00" "
 }
 ```
 # Testing
