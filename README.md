@@ -59,7 +59,8 @@ poetry run uvicorn openai_func_app.main:app --reload
 # Features
 - RESTful API built with FastAPI.
 - Integration with OpenAI's API.
-- Basic arithmetic functions.
+- Getting Top product selling by Quantity, Revenue , Profit , Profit Margin by %
+- Getting Low product selling by Quantity , Revenue , Profit , Profit Margin by %
 - Custom chat-based interface for interacting with functions.
 
 # Configuration
@@ -80,21 +81,27 @@ DEPLOYMENT_NAME=your-deployment-name
 ```bash 
 
 openai_func_app/
-│   ├── __init__.py
-│   ├── main.py          # Application entry point
-│   ├── config.py        # Configuration settings
-│   ├── models.py        # Data models (if any)
-│   ├── routes.py        # API routes
-│   └── utils/           # Utility functions and helpers
-│       ├── __init__.py
-│       ├── functions.py  # Arithmetic functions
-│       ├── openai_api.py # OpenAI API interactions
-│       ├── tools.py      # Tool definitions for OpenAI
-│       └── function_map.py # Function map for executing functions
-tests/                   # Unit and integration tests
-├── pyproject.toml       # Poetry configuration file
-├── README.md            # Project documentation
-└── .env                 # Environment variables file (optional)
+│
+├── openai_func_app/         # Main application package
+│   ├── utils/               # Utility modules for database connection, validation, etc.
+│   │   ├── __init__.py
+│   │   ├── db_connector.py  # Database connection logic
+│   │   ├── validators.py    # Validation functions
+│   │   ├── open_api.py      # Logic for interacting with OpenAI's API
+│   │   ├── functions.py     # General functions for various tasks
+│   │   ├── helpers.py       # Helper functions
+│   ├── metric_map.py        # Mapping metrics to SQL queries
+│   ├── main.py              # Entry point of the FastAPI application
+│   ├── routes.py            # API route definitions
+│   ├── config.py            # Configuration settings
+│   ├── function_map.py      # Mapping functions and queries
+│   ├── tools.py             # Miscellaneous helper functions
+├── tests/                   # Unit and integration tests
+│   ├── test_routes.py       # Tests for API routes
+├── .env                     # Environment variables (not to be committed to VCS)
+├── pyproject.toml           # Poetry configuration file
+├── README.md                # Project documentation
+├── .gitignore               # Git ignore rules            
 ```
 # API Endpoints
 ```
