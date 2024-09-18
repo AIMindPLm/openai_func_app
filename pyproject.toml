@@ -11,8 +11,8 @@ fastapi = "^0.114.1"
 uvicorn = "^0.30.6"
 openai = "^1.44.1"
 requests = "^2.32.3"
-flask = "^3.0.3"
 python-dotenv = "^1.0.1"
+mysql-connector-python = "^9.0.0"
 
 
 [build-system]

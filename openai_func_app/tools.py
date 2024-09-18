@@ -1,80 +1,40 @@
-
-
 tools = [
     {
         "type": "function",
         "function": {
-            "name": "add",
-            "description": "Add two numbers together , if not any number given ask for number.",
+            "name": "get_top_products_by_metric_and_time",
+            "description": "Fetch the top or low-performing products based on a specific metric (quantity, revenue, profit, or profit margin) and time period (monthly, quarterly, half-yearly, or annually).",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "a": {"type": "number"},
-                    "b": {"type": "number"}
-                },
-                "required": ["a", "b"]
-            }
-        }
-    },
-    {
-        "type": "function",
-        "function": {
-            "name": "subtract",
-            "description": "Subtract the second number from the first.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "a": {"type": "number"},
-                    "b": {"type": "number"}
-                },
-                "required": ["a", "b"]
-            }
-        }
-    },
-    {
-        "type": "function",
-        "function": {
-            "name": "multiply",
-            "description": "Multiply two numbers together.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "a": {"type": "number"},
-                    "b": {"type": "number"}
-                },
-                "required": ["a", "b"]
-            }
-        }
-    },
-    {
-        "type": "function",
-        "function": {
-            "name": "divide",
-            "description": "Divide the first number by the second.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "a": {"type": "number"},
-                    "b": {"type": "number"}
-                },
-                "required": ["a", "b"]
-            }
-        }
-    },
-    {
-        "type": "function",
-        "function": {
-            "name": "is_even_or_odd",
-            "description": "Determines if a number is even or odd.",
-            "parameters": {
-                "type": "object",
-                "properties": {
-                    "number": {
+                    "metric": {
+                        "type": "string",
+                        "description": "The metric to rank products by. Possible values: 'quantity', 'revenue', 'profit', 'profit_margin'.",
+                        "enum": ["quantity", "revenue", "profit", "profit_margin"]
+                    },
+                    "time_period": {
+                        "type": "string",
+                        "description": "The time period for filtering the products. Possible values: 'monthly', 'quarterly', 'half_yearly', 'annually'.if not given anything about time period use monthly",
+                        "enum": ["monthly", "quarterly", "half_yearly", "annually"]
+                    },
+                    "specific_period": {
+                        "type": "string",
+                        "description": "The specific period for the chosen time period. Format: 'YYYY-MM' for monthly, 'YYYY-QX' for quarterly, 'YYYY-HX' for half-yearly, or 'YYYY' for annually.",
+                        "default": "Use Current Year and August Month as 2024-08"
+                    },
+                    "order_direction": {
+                    "type": "string",
+                    "description": "The direction of sorting. Use 'DESC' for top products and 'ASC' for low-performing products.",
+                    "enum": ["ASC", "DESC"],
+                    "default": "DESC"
+                   },
+                    "limit": {
                         "type": "integer",
-                        "description": "To Check whether the given Number is Odd or Even"
+                        "description": "The number of top products to return.",
+                        "default": 5
                     }
                 },
-                "required": ["number"]
+                "required": ["metric", "time_period", "specific_period", "limit"]
             }
         }
     }
