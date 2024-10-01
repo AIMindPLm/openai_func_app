@@ -2,11 +2,12 @@
 import openai
 from openai import AzureOpenAI
 import json
-from config import AZURE_ENDPOINT, API_KEY, API_VERSION, DEPLOYMENT
+from config.config import AZURE_ENDPOINT, API_KEY, API_VERSION, DEPLOYMENT
 from utils.validator import valid_function_names
 from tools import tools
 from .helpers import is_within_scope
 
+print("AZURE_ENDPOINT",AZURE_ENDPOINT)
 client = AzureOpenAI(
     azure_endpoint=AZURE_ENDPOINT,
     api_key=API_KEY,

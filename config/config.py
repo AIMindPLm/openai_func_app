@@ -2,7 +2,7 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(dotenv_path='.env')
 
 # Azure OpenAI Configuration
 AZURE_ENDPOINT = os.environ.get("ENDPOINT_URL")
@@ -11,3 +11,7 @@ API_VERSION = "2023-07-01-preview"
 
 # OpenAI Model Deployment
 DEPLOYMENT = os.environ.get('DEPLOYMENT_NAME')
+
+
+
+# Sql Db Connection
