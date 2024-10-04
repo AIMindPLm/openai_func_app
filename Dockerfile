@@ -25,8 +25,11 @@ RUN poetry install --no-root --no-dev
 # Copy the entire project code inside the openai_func_app folder
 COPY . .
 
+# Copy the .env file
+COPY .env .env
+
 # Expose the application's port
 EXPOSE 8080
 
 # Start the application using the proper path to the main module
-CMD ["poetry", "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]

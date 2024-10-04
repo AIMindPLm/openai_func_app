@@ -1,10 +1,10 @@
-# utils/openai_api.py
+# app/utils/openai_api.py
 import openai
 from openai import AzureOpenAI
 import json
 from config.config import AZURE_ENDPOINT, API_KEY, API_VERSION, DEPLOYMENT
-from utils.validator import valid_function_names
-from tools import tools
+from .validator import valid_function_names
+from app.tools import tools
 from .helpers import is_within_scope
 
 print("AZURE_ENDPOINT",AZURE_ENDPOINT)
@@ -13,7 +13,6 @@ client = AzureOpenAI(
     api_key=API_KEY,
     api_version=API_VERSION
 )
-
 
 
 def call_openai_function_calling(messages, tools):

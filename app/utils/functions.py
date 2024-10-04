@@ -1,6 +1,6 @@
 # utils/functions.py
 from .db_connector import connect_to_database
-from metric_map import metrics_map , time_filters
+from app.metric_map import metrics_map , time_filters
 
 def get_top_products_by_metric_and_time(metric, time_period, organization_id = '7f366021-c66a-4fdc-99ae-bdfce2113cb2', limit=int,order_direction=' ',**kwargs):
 
@@ -73,8 +73,6 @@ def get_top_products_by_metric_and_time(metric, time_period, organization_id = '
     })
    result = cursor.fetchall()
    return result
-
-
 
 def sales_order_time_filter_query(metric, time_period, organization_id = '7f366021-c66a-4fdc-99ae-bdfce2113cb2', limit=int,order_direction=' ',**kwargs):
 
