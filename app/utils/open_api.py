@@ -14,7 +14,7 @@ client = AzureOpenAI(
     api_version=API_VERSION
 )
 
-
+#Caling openai function 
 def call_openai_function_calling(messages, tools):
     response = client.chat.completions.create(
         model=DEPLOYMENT,
